@@ -4,7 +4,6 @@ import torch.nn as nn
 import torch
 
 
-
 def make_model(model_weights):
     available_weights = ["SHA", "SHB"]
 
@@ -14,7 +13,7 @@ def make_model(model_weights):
     output = weights_check("CSRNet", model_weights)
 
     model = CSRNet()
-    model.load_state_dict(torch.load(output)["state_dict"])
+    model.load_state_dict(torch.load(output)["model"])
 
     return model
 
@@ -27,6 +26,9 @@ class CSRNet(nn.Module):
         self.frontend = make_layers(self.frontend_feat)
         self.backend = make_layers(self.backend_feat, in_channels=512, dilation=True)
         self.output_layer = nn.Conv2d(64, 1, kernel_size=1)
+
+    def get_name(self):
+        return "CSRNet"
 
     def forward(self, x):
         x = self.frontend(x)

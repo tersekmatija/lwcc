@@ -9,10 +9,10 @@ def make_model(model_weights):
     if model_weights not in available_weights:
         raise ValueError("Weights {} not available for CSRNet. Available weights: {}".format(model_weights,
                                                                                              available_weights))
-    output = weights_check("SFANet", model_weights)
+    weights_path = weights_check("SFANet", model_weights)
 
     model = SFANet()
-    model.load_state_dict(torch.load(output)["model"])
+    model.load_state_dict(torch.load(weights_path)["model"])
 
     return model
 
@@ -25,6 +25,9 @@ class SFANet(nn.Module):
 
         self.conv_att = BaseConv(32, 1, 1, 1, activation=nn.Sigmoid(), use_bn=True)
         self.conv_out = BaseConv(32, 1, 1, 1, activation=None, use_bn=False)
+
+    def get_name(self):
+        return "SFANet"
 
     def forward(self, input):
         input = self.vgg(input)
