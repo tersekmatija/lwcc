@@ -4,7 +4,7 @@ import torch
 from torch import nn
 
 def make_model(model_weights):
-    available_weights = ["SHA", "SHB"]
+    available_weights = ["SHB"]
 
     if model_weights not in available_weights:
         raise ValueError("Weights {} not available for CSRNet. Available weights: {}".format(model_weights,
