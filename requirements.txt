@@ -1,0 +1,5 @@
+numpy>=1.14.0
+torch>=1.6
+gdown>=3.10.1
+torchvision
+pillow>=8.0

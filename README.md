@@ -1,6 +1,6 @@
 # LWCC: A LightWeight Crowd Counting library for Python
 
-![](imgs/lwcc_header_gif.gif)
+![](https://github.com/tersekmatija/lwcc/blob/master/imgs/lwcc_header_gif.gif)
 
 ![](https://img.shields.io/badge/state-of%20the%20art-orange) ![](https://img.shields.io/github/license/tersekmatija/lwcc?label=license)
 
@@ -43,7 +43,7 @@ count = LWCC.get_count([img1, img2])
 ```
 
 Result is then a dictionary of pairs *image_name : image_count*:
-![result](imgs/result.png)
+![result](https://github.com/tersekmatija/lwcc/blob/master/imgs/result.png)
 
 #### Density map
 You can also request a density map by setting flag *return_density = True*. The result is then a tuple *(count, density_map)*, where *density_map* is a 2d array with predicted densities. The array is smaller than the input image and its size depends on the model. 
@@ -56,7 +56,7 @@ count, density = LWCC.get_count(img, return_density = True)
 plt.imshow(density)
 plt.show()
 ```
-![result_density](imgs/result_density.png)
+![result_density](https://github.com/tersekmatija/lwcc/blob/master/imgs/result_density.png)
 
 This also works for multiple images (list of image paths as input). Result is then a tuple of two dictionaries, where the first dictionary is the same as above (pairs of *image_name : image_count*) and the second dictionary contains pairs of *image_name : density_map*.
 
