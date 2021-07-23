@@ -13,7 +13,7 @@ def make_model(model_weights):
     output = weights_check("CSRNet", model_weights)
 
     model = CSRNet()
-    model.load_state_dict(torch.load(output)["model"])
+    model.load_state_dict(torch.load(output, map_location ='cpu')["model"])
 
     return model
 

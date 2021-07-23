@@ -1,4 +1,4 @@
-from src.lwcc import LWCC
+from lwcc import LWCC
 import matplotlib.pyplot as plt
 
 # Image paths

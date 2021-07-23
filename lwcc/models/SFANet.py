@@ -12,7 +12,7 @@ def make_model(model_weights):
     weights_path = weights_check("SFANet", model_weights)
 
     model = SFANet()
-    model.load_state_dict(torch.load(weights_path)["model"])
+    model.load_state_dict(torch.load(weights_path, map_location ='cpu')["model"])
 
     return model
 
