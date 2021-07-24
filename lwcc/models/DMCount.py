@@ -2,7 +2,6 @@ from ..util.functions import weights_check
 
 import torch.nn as nn
 import torch
-from torch.nn import functional as F
 
 
 def make_model(model_weights):
@@ -37,7 +36,7 @@ class VGG(nn.Module):
 
     def forward(self, x):
         x = self.features(x)
-        x = F.upsample_bilinear(x, scale_factor=2)
+        x = nn.functional.interpolate(x, scale_factor = 2, mode='bilinear', align_corners=True)
         x = self.reg_layer(x)
         mu = self.density_layer(x)
         # B, C, H, W = mu.size()

@@ -1,6 +1,5 @@
 from .models import CSRNet, SFANet, Bay, DMCount
 from .util.functions import load_image
-import numpy as np
 
 import torch
 
@@ -66,7 +65,6 @@ def get_count(img_paths, model_name="CSRNet", model_weights="SHA", model=None, i
     counts = {}
     densities = {}
     for img_path in img_paths:
-        print(model.get_name())
         img, name = load_image(img_path, model.get_name(), is_gray)
 
         with torch.set_grad_enabled(False):

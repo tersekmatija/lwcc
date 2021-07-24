@@ -6,9 +6,11 @@ img1 = "dataset/img01.jpg"
 img2 = "dataset/img02.jpg"
 
 # Initialize model and predict
-#model = LWCC.load_model(model_weights= "SHA")
-#count = LWCC.get_count(img2, model = model)
-#print(f"Count for img1: {count}")
+"""
+model = LWCC.load_model(model_weights= "SHA")
+count = LWCC.get_count(img2, model = model)
+print(f"Count for img1: {count}")
+"""
 
 # Direct
 """
@@ -24,14 +26,16 @@ fig.savefig('out.png', bbox_inches='tight', pad_inches=0)
 """
 
 # Test multiple
-counts = LWCC.get_count([img1, img2], model_name= "SFANet", model_weights="SHB")
+"""
+counts = LWCC.get_count([img1, img2], model_name= "DM-Count", model_weights="SHB")
 print(f"Counts for img1, img2: {counts}")
 
-counts = LWCC.get_count([img1, img2], model_name= "SFANet", model_weights="SHA")
+counts = LWCC.get_count([img1, img2], model_name= "DM-Count", model_weights="SHA")
 print(f"Counts for img1, img2: {counts}")
 
-#counts = LWCC.get_count([img1, img2], model_name= "Bay", model_weights="QNRF")
-#print(f"Counts for img1, img2: {counts}")
+counts = LWCC.get_count([img1, img2], model_name= "DM-Count", model_weights="QNRF")
+print(f"Counts for img1, img2: {counts}")
+"""
 
 # Test density map
 """

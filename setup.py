@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
     
 setuptools.setup(
     name="lwcc",
-    version="0.0.4",
+    version="0.0.5",
     author="Matija Teršek, Maša Kljun",
     author_email="matijatersek@protonmail.com",
-    description="A Lightweight Crownd Counting library for Python",
+    description="A LightWeight Crowd Counting library for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/tersekmatija/lwcc",

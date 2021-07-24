@@ -1,8 +1,9 @@
 # LWCC: A LightWeight Crowd Counting library for Python
 
+![State-of-the-art](https://img.shields.io/badge/state-of%20the%20art-orange) ![License](https://img.shields.io/github/license/tersekmatija/lwcc?label=license)  [![Downloads](https://pepy.tech/badge/lwcc)](https://pepy.tech/project/lwcc) ![Stars](https://img.shields.io/github/stars/tersekmatija/lwcc) ![PyPi](https://img.shields.io/pypi/v/lwcc?color=pink)
+
 ![](https://raw.githubusercontent.com/tersekmatija/lwcc/master/imgs/lwcc_header_gif.gif)
 
-![](https://img.shields.io/badge/state-of%20the%20art-orange) ![](https://img.shields.io/github/license/tersekmatija/lwcc?label=license)
 
 LWCC is a lightweight crowd counting framework for Python. It wraps four state-of-the-art models all based on convolutional neural networks: [`CSRNet`](https://github.com/leeyeehoo/CSRNet-pytorch), [`Bayesian crowd counting`](https://github.com/ZhihengCV/Bayesian-Crowd-Counting), [`DM-Count`](https://github.com/cvlab-stonybrook/DM-Count), and [`SFANet`](https://github.com/pxq0312/SFANet-crowd-counting). The library is based on PyTorch.
 
@@ -90,6 +91,13 @@ Valid options for *model_weights* are written in the first row and thus include:
 
 ## FAQ - Frequently asked questions
 
+#### Can I see some more examples of LWCC in action?
+Yes, you can find some examples in [Examples.ipynb](https://github.com/tersekmatija/lwcc/blob/master/tests/Examples.ipynb)!
+
+#### How accurate are the models?
+
+You can see the mean absolute error (MAE) and mean squared error (MSE) of the pretrained models on test sets in section [models](#models). We recommend models pretrained on SHA or QNRF for dense crowds, and SHB for sparse crowds.
+
 #### Is GPU support available?
 No, GPU support is currently not supported yet, but is planned for the future version.
 
@@ -102,8 +110,10 @@ The library does not support training, only inference.
 ## Support
 If you like the library please show us your support by ⭐️ starring the project!
 
+If you wish to include your own crowd counting model, please contact us (*matijatersek@protonmail.com*).
+
 ## Citation
-Although the paper has not been published yet, please provide the link to this GitHub repository if you use LWCC in your research.
+This library is a result of a research of CNN Crowd Counting models by Matija Teršek and Maša Kljun. Although the paper has not been published yet, please provide the link to this GitHub repository if you use LWCC in your research.
 
 ## License
 This library is licensed under MIT license (see [LICENSE](https://github.com/tersekmatija/lwcc/blob/master/LICENSE)). Licenses of the models wrapped in the library will be inherited, depending on the model you use ( [`CSRNet`](https://github.com/leeyeehoo/CSRNet-pytorch), [`Bayesian crowd counting`](https://github.com/ZhihengCV/Bayesian-Crowd-Counting), [`DM-Count`](https://github.com/cvlab-stonybrook/DM-Count), and [`SFANet`](https://github.com/pxq0312/SFANet-crowd-counting)).
