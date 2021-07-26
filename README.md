@@ -33,6 +33,13 @@ count = LWCC.get_count(img, model_name = "DM-Count", model_weights = "SHB")
 ```
 The result is a float with predicted count.
 
+##### Large images
+
+**Note**: By default all images are resized such that the longest side is less than 1000px, preserving the aspect ratio. Otherwise models might perform worse for large images with sparse crowds (counting patterns on shirts, dresses). If you are estimating dense crowds, we recommend you to set the *resize_img* to *False*. The call should look like this:
+
+```python
+count = LWCC.get_count(img, model_name = "DM-Count", model_weights = "SHB", resize_img = True)
+```
 #### Multiple images
 Library allows prediction of count for multiple images with a single call of *get_count*.
 You can simply pass a list of image paths:
@@ -110,6 +117,11 @@ Full support of loading custom pretrained weights is not supported, but is plann
 
 #### Can I train the models myself?
 The library does not support training, only inference.
+
+#### Why are my results bad?
+This might depend on the model you use, image size, density or type of the crowd, or the weights that you use. For example, models might often make mistakes for images with a group portrait, as they are trained on images containing crowds on streets, concerts, etc. Using `SHA`weights on relatively sparse crowds might also give very wrong results. On the other hand, `SHB` might perform better as the weights were trained on Shanghai B data set, which containts images with relatively sparse crowds. Using high quality images with sparse crowds might also yield bad results, as the algorithms might mistake some textures of clothings for a crowd.
+
+As a rule of thumb, you should use `SHB` if you are planning on estimating the number of people in images with sparse crowds, and `SHA` or `QNRF` for images with dense crowds. Keep in mind that current algorithms predict the density, and there still might be some mistakes. You are welcome to try out different combinations of models and weights and see which one works the best for your problem.
 
 ## Support
 If you like the library please show us your support by ⭐️ starring the project!

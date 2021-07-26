@@ -31,11 +31,11 @@ class SFANet(nn.Module):
 
     def forward(self, input):
         input = self.vgg(input)
-        #amp_out = self.amp(*input)
+        amp_out = self.amp(*input)
         dmp_out = self.dmp(*input)
 
-        #amp_out = self.conv_att(amp_out)
-        #dmp_out = amp_out * dmp_out
+        amp_out = self.conv_att(amp_out)
+        dmp_out = amp_out * dmp_out
         dmp_out = self.conv_out(dmp_out)
 
         return dmp_out#, amp_out

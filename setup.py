@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     
 setuptools.setup(
     name="lwcc",
-    version="0.0.5",
+    version="0.0.6",
     author="Matija Teršek, Maša Kljun",
     author_email="matijatersek@protonmail.com",
     description="A LightWeight Crowd Counting library for Python",
