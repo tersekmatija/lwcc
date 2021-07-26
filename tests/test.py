@@ -64,3 +64,9 @@ fig.set_size_inches(15, 8.44)
 plt.show()
 fig.savefig('out.png', bbox_inches='tight', pad_inches=0)
 """
+
+count, density = LWCC.get_count("dataset/img02.jpg", model_name="Bay", model_weights="SHB",
+                                return_density=True, resize_img=False)
+plt.imshow(density)
+plt.show()
+print(count)

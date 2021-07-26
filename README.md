@@ -1,6 +1,6 @@
 # LWCC: A LightWeight Crowd Counting library for Python
 
-![State-of-the-art](https://img.shields.io/badge/state-of%20the%20art-orange) ![License](https://img.shields.io/github/license/tersekmatija/lwcc?label=license)  [![Downloads](https://pepy.tech/badge/lwcc)](https://pepy.tech/project/lwcc) ![Stars](https://img.shields.io/github/stars/tersekmatija/lwcc) ![PyPi](https://img.shields.io/pypi/v/lwcc?color=pink)
+![](https://img.shields.io/badge/state-of%20the%20art-orange) ![](https://img.shields.io/github/license/tersekmatija/lwcc?label=license)  [![](https://pepy.tech/badge/lwcc)](https://pepy.tech/project/lwcc) ![](https://img.shields.io/github/stars/tersekmatija/lwcc) ![](https://img.shields.io/pypi/v/lwcc?color=pink)
 
 ![](https://raw.githubusercontent.com/tersekmatija/lwcc/master/imgs/lwcc_header_gif.gif)
 

@@ -37,7 +37,8 @@ def load_model(model_name="CSRNet", model_weights="SHA"):
     return loaded_models[model_full_name]
 
 
-def get_count(img_paths, model_name="CSRNet", model_weights="SHA", model=None, is_gray=False, return_density=False):
+def get_count(img_paths, model_name="CSRNet", model_weights="SHA", model=None, is_gray=False, return_density=False,
+              resize_img = True):
     """
     Return the count on image/s. You can use already loaded model or choose the name and pre-trained weights.
     :param img_paths: Either String (path to the image) or a list of strings (paths).
@@ -46,6 +47,8 @@ def get_count(img_paths, model_name="CSRNet", model_weights="SHA", model=None, i
     :param model: Possible preloaded model. Default: None.
     :param is_gray: Are the input images grayscale? Default: False.
     :param return_density: Return the predicted density maps for input? Default: False.
+    :param resize_img: Should images with high resolution be down-scaled? This is especially good for high resolution
+            images with relatively few people. For very dense crowds, False is recommended. Default: True
     :return: Depends on whether the input is a String or list and on the return_density flag.
         If input is a String, the output is a float with the predicted count.
         If input is a list, the output is a dictionary with image names as keys, and predicted counts (float) as values.
@@ -65,7 +68,7 @@ def get_count(img_paths, model_name="CSRNet", model_weights="SHA", model=None, i
     counts = {}
     densities = {}
     for img_path in img_paths:
-        img, name = load_image(img_path, model.get_name(), is_gray)
+        img, name = load_image(img_path, model.get_name(), is_gray, resize_img)
 
         with torch.set_grad_enabled(False):
             output = model(img)

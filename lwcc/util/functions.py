@@ -30,7 +30,7 @@ def weights_check(model_name, model_weights):
 
     return output
 
-def load_image(img_path, model_name, is_gray=False):
+def load_image(img_path, model_name, is_gray=False, resize_img = True):
     if not os.path.isfile(img_path):
         raise ValueError("Confirm that {} exists".format(img_path))
 
@@ -49,12 +49,20 @@ def load_image(img_path, model_name, is_gray=False):
     # preprocess image
     img = Image.open(img_path).convert('RGB')
 
+    # resize image
+    if resize_img:
+        long = max(img.size[0], img.size[1])
+        factor = 1000 / long
+        img = img.resize((int(img.size[0] * factor), int(img.size[1] * factor)),
+                         Image.BILINEAR)
+
     # different preprocessing for SFANet
     if model_name == "SFANet":
         height, width = img.size[1], img.size[0]
         height = round(height / 16) * 16
         width = round(width / 16) * 16
         img = img.resize((width, height), Image.BILINEAR)
+
 
     img = trans(img)
     img = img.unsqueeze(0)
