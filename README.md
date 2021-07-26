@@ -89,6 +89,10 @@ Valid options for *model_weights* are written in the first row and thus include:
 
 **Note**: Not all *model_weights* are supported with all *model_names*. See the above table for possible combinations.
 
+
+## How does it work?
+The goal of crowd counting methods is to determine the number of people present in a particular area. There exist many approaches (detection, regression, density-based approaches), however, since 2015 many convolutional neural network (CNN) based approaches have been proposed. The basic idea behind CNN based approaches is that they normally try to predict the density map from the input image and infer the count from it. These models differ in the use of different backbones, loss functions, additional maps, etc. If you are interested in a particular algorithm, you are welcome to read the paper belonging to the specific model.
+
 ## FAQ - Frequently asked questions
 
 #### Can I see some more examples of LWCC in action?
@@ -110,7 +114,7 @@ The library does not support training, only inference.
 ## Support
 If you like the library please show us your support by ⭐️ starring the project!
 
-If you wish to include your own crowd counting model, please contact us (*matijatersek@protonmail.com*).
+If you wish to include your own crowd counting model, please contact us (*matijatersek@protonmail.com* or *masika.kljun@gmail.com*).
 
 ## Citation
 This library is a result of a research of CNN Crowd Counting models by Matija Teršek and Maša Kljun. Although the paper has not been published yet, please provide the link to this GitHub repository if you use LWCC in your research.
