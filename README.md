@@ -128,6 +128,9 @@ If you like the library please show us your support by ⭐️ starring the proje
 
 If you wish to include your own crowd counting model, please contact us (*matijatersek@protonmail.com* or *masika.kljun@gmail.com*).
 
+### Stargazers
+[![Stargazers repo roster for @tersekmatija/lwcc](https://reporoster.com/stars/tersekmatija/lwcc)](https://github.com/tersekmatija/lwcc/stargazers)
+
 ## Citation
 This library is a result of a research of CNN Crowd Counting models by Matija Teršek and Maša Kljun. Although the paper has not been published yet, please provide the link to this GitHub repository if you use LWCC in your research.
 

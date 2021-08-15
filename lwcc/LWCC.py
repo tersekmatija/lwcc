@@ -64,19 +64,24 @@ def get_count(img_paths, model_name="CSRNet", model_weights="SHA", model=None, i
     if model is None:
         model = load_model(model_name, model_weights)
 
-    # get counts
-    counts = {}
-    densities = {}
+    # load images
+    imgs, names = [], []
+
     for img_path in img_paths:
         img, name = load_image(img_path, model.get_name(), is_gray, resize_img)
+        imgs.append(img)
+        names.append(name)
 
-        with torch.set_grad_enabled(False):
-            output = model(img)
-            count = torch.sum(output).item()
-        counts[name] = count
+    imgs = torch.cat(imgs)
 
-        if return_density:
-            densities[name] = output.to('cpu').numpy()[0, 0, :, :]
+    with torch.set_grad_enabled(False):
+        outputs = model(imgs)
+
+    counts = torch.sum(outputs, (1, 2, 3)).numpy()
+    counts = dict(zip(names, counts))
+
+    densities = dict(zip(names, outputs[:, 0, :, :].numpy()))
+
 
     if len(counts) == 1:
         if return_density:

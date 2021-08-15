@@ -43,7 +43,7 @@ counts, density = LWCC.get_count(img1, model_name="Bay", model_weights="SHB", re
 print(f"Count: {counts}")
 plt.imshow(density)
 
-from src.lwcc.util import functions
+from lwcc.util import functions
 from PIL import Image
 import numpy as np
 
@@ -65,8 +65,16 @@ plt.show()
 fig.savefig('out.png', bbox_inches='tight', pad_inches=0)
 """
 
-count, density = LWCC.get_count("dataset/img01.jpg", model_name="DM-Count", model_weights="SHB",
+# Density multiple
+"""
+counts, densities = LWCC.get_count([img1, img2], model_name="DM-Count", model_weights="SHB",
                                 return_density=True)
-plt.imshow(density)
+print(counts)
+print(densities)
+plt.imshow(densities["img01"])
 plt.show()
-print(count)
+plt.imshow(densities["img02"])
+plt.show()
+
+print(densities["img01"].shape)
+"""
